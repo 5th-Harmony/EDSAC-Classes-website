@@ -1,5 +1,6 @@
 import Header from "@/components/Header";
 import Carousel from "@/components/Carousel";
+import { AppSidebar } from "@/components/AppSidebar";
 
 const Index = () => {
   // Sample data for the 6 screens - easily customizable
@@ -43,22 +44,25 @@ const Index = () => {
   ];
 
   return (
-    <div className="min-h-screen">
-      <Header />
-      
-      <main className="container mx-auto py-12">
-        <div className="text-center mb-12 animate-fade-in">
-          <h1 className="text-5xl font-bold text-foreground mb-4">
-            Welcome to ENIAC Classes
-          </h1>
-          <p className="text-xl text-foreground/80 max-w-2xl mx-auto">
-            Explore our interactive platform for education in rural schools
-          </p>
-        </div>
+    <>
+      <AppSidebar />
+      <div className="flex-1 min-h-screen">
+        <Header />
         
-        <Carousel screens={carouselScreens} />
-      </main>
-    </div>
+        <main className="container mx-auto py-12">
+          <div className="text-center mb-12 animate-fade-in">
+            <h1 className="text-5xl font-bold text-foreground mb-4">
+              Welcome to ENIAC Classes
+            </h1>
+            <p className="text-xl text-foreground/80 max-w-2xl mx-auto">
+              Explore our interactive platform for education in rural schools
+            </p>
+          </div>
+          
+          <Carousel screens={carouselScreens} />
+        </main>
+      </div>
+    </>
   );
 };
 
