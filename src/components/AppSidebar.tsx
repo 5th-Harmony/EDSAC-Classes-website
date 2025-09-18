@@ -28,10 +28,10 @@ export function AppSidebar() {
   };
 
   return (
-    <Sidebar className="w-1/4 bg-white border-r border-gray-200" side="left">
-      <SidebarContent className="bg-white">
+    <Sidebar className="w-1/4 bg-sidebar border-r border-sidebar-border" side="left">
+      <SidebarContent className="bg-sidebar">
         <SidebarGroup>
-          <SidebarGroupLabel className="text-gray-900 font-semibold text-lg mb-4">
+          <SidebarGroupLabel className="text-sidebar-foreground font-semibold text-lg mb-4">
             ENIAC Classes
           </SidebarGroupLabel>
           <SidebarGroupContent>
@@ -40,7 +40,7 @@ export function AppSidebar() {
                 <SidebarMenuItem key={item.title}>
                   <SidebarMenuButton 
                     onClick={() => handleMenuClick(item.title)}
-                    className="w-full text-left py-3 px-4 text-gray-700 hover:bg-gray-100 hover:text-gray-900 transition-colors duration-200 rounded-lg flex items-center gap-3"
+                    className="w-full text-left py-3 px-4 text-sidebar-foreground hover:bg-sidebar-accent hover:text-sidebar-accent-foreground transition-colors duration-200 rounded-lg flex items-center gap-3"
                   >
                     <item.icon className="h-5 w-5" />
                     <span className="font-medium">{item.title}</span>
