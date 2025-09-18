@@ -37,24 +37,23 @@ export function AppSidebar() {
 
   return (
     <>
-      {/* Toggle Button */}
+      {/* Menu Button */}
       <button
         onClick={toggleSidebar}
-        className="fixed top-4 right-4 z-50 bg-white border border-border p-2 rounded-lg shadow-md hover:bg-accent transition-colors"
+        className="fixed top-4 right-4 z-50 bg-black text-white p-2 rounded-lg shadow-md hover:bg-white hover:text-black transition-colors"
         aria-label="Toggle Sidebar"
       >
-        <Menu className="h-6 w-6 text-foreground" />
+        <Menu className="h-6 w-6" />
       </button>
 
-      {/* Animated Sidebar */}
+      {/* Sidebar with animation */}
       <Sidebar
-        className={`w-80 bg-white border-l border-border shadow-lg fixed top-0 right-0 h-full z-40 transform transition-transform duration-300 ease-in-out ${
-          isOpen ? "translate-x-0" : "translate-x-full"
-        }`}
+        className={`w-80 fixed top-0 right-0 h-full z-40 transform transition-transform duration-300 ease-in-out
+          ${isOpen ? "translate-x-0" : "translate-x-full"} bg-black border-l border-white shadow-xl`}
       >
-        <SidebarContent className="bg-white">
+        <SidebarContent className="bg-black text-white">
           <SidebarGroup>
-            <SidebarGroupLabel className="text-foreground font-semibold text-lg mb-4 px-4 pt-4">
+            <SidebarGroupLabel className="font-semibold text-lg mb-4 px-4 pt-4">
               ENIAC Classes
             </SidebarGroupLabel>
             <SidebarGroupContent>
@@ -63,7 +62,7 @@ export function AppSidebar() {
                   <SidebarMenuItem key={item.title}>
                     <SidebarMenuButton
                       onClick={() => handleMenuClick(item.title)}
-                      className="w-full text-left py-3 px-4 text-foreground hover:bg-accent hover:text-accent-foreground transition-colors duration-200 rounded-lg flex items-center gap-3"
+                      className="w-full text-left py-3 px-4 hover:bg-white hover:text-black transition-colors duration-200 rounded-lg flex items-center gap-3"
                     >
                       <item.icon className="h-5 w-5" />
                       <span className="font-medium">{item.title}</span>
