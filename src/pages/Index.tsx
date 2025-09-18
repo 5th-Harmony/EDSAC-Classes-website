@@ -1,6 +1,5 @@
 import Header from "@/components/Header";
 import Carousel from "@/components/Carousel";
-import { AppSidebar } from "@/components/AppSidebar";
 
 const Index = () => {
   // Sample data for the 6 screens - easily customizable
@@ -44,10 +43,8 @@ const Index = () => {
   ];
 
   return (
-    <>
-      <AppSidebar />
-      <div className="flex-1 min-h-screen">
-        <Header />
+    <div className="min-h-screen">
+      <Header />
         
         <main className="container mx-auto py-12">
           <div className="text-center mb-12 animate-fade-in">
@@ -102,8 +99,7 @@ const Index = () => {
             </div>
           </div>
         </section>
-      </div>
-    </>
+    </div>
   );
 };
 

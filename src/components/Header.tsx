@@ -1,7 +1,6 @@
-import { Search, Menu } from "lucide-react";
+import { Search } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
-import { SidebarTrigger } from "@/components/ui/sidebar";
 import { useState } from "react";
 
 const Header = () => {
@@ -84,10 +83,6 @@ const Header = () => {
         >
           EXPLORE
         </button>
-        
-        <SidebarTrigger className="text-foreground hover:bg-foreground/10">
-          <Menu className="h-6 w-6" />
-        </SidebarTrigger>
       </div>
     </header>
   );
