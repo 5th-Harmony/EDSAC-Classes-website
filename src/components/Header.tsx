@@ -1,6 +1,7 @@
-import { Search } from "lucide-react";
+import { Search, Menu } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
+import { SidebarTrigger } from "@/components/ui/sidebar";
 import { useState } from "react";
 
 const Header = () => {
@@ -22,7 +23,7 @@ const Header = () => {
   };
 
   return (
-    <header className="w-full px-8 py-4 flex items-center justify-between animate-fade-in">
+    <header className="w-full px-4 lg:px-8 py-4 flex items-center justify-between animate-fade-in bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60 border-b border-border/40">
       {/* Logo */}
       <div className="flex items-center space-x-8">
         <button 
@@ -83,6 +84,10 @@ const Header = () => {
         >
           EXPLORE
         </button>
+        
+        <SidebarTrigger className="text-foreground hover:bg-accent rounded-lg p-2 transition-colors">
+          <Menu className="h-5 w-5" />
+        </SidebarTrigger>
       </div>
     </header>
   );

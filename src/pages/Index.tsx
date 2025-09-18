@@ -1,5 +1,6 @@
 import Header from "@/components/Header";
 import Carousel from "@/components/Carousel";
+import { AppSidebar } from "@/components/AppSidebar";
 
 const Index = () => {
   // Sample data for the 6 screens - easily customizable
@@ -43,15 +44,17 @@ const Index = () => {
   ];
 
   return (
-    <div className="min-h-screen">
-      <Header />
+    <>
+      <AppSidebar />
+      <div className="flex-1 min-h-screen">
+        <Header />
         
-        <main className="container mx-auto py-12">
-          <div className="text-center mb-12 animate-fade-in">
-            <h1 className="text-5xl font-bold text-foreground mb-4">
+        <main className="w-full max-w-7xl mx-auto px-4 lg:px-8 py-8">
+          <div className="text-center mb-16 animate-fade-in">
+            <h1 className="text-4xl lg:text-6xl font-bold text-foreground mb-6 tracking-tight">
               Welcome to ENIAC Classes
             </h1>
-            <p className="text-xl text-foreground/80 max-w-2xl mx-auto">
+            <p className="text-lg lg:text-xl text-muted-foreground max-w-3xl mx-auto leading-relaxed">
               Explore our interactive platform for education in rural schools
             </p>
           </div>
@@ -60,8 +63,8 @@ const Index = () => {
         </main>
 
         {/* About Section */}
-        <section className="bg-muted py-16 mt-16">
-          <div className="container mx-auto px-8">
+        <section className="bg-muted/30 py-20 mt-20 border-t border-border/40">
+          <div className="w-full max-w-7xl mx-auto px-4 lg:px-8">
             <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
               <div>
                 <h3 className="text-lg font-semibold text-foreground mb-4">About</h3>
@@ -99,7 +102,8 @@ const Index = () => {
             </div>
           </div>
         </section>
-    </div>
+      </div>
+    </>
   );
 };
 
