@@ -44,9 +44,9 @@ const Index = () => {
   ];
 
   return (
-    <>
+    <div className="min-h-screen flex flex-col">
       <AppSidebar />
-      <div className="flex-1 min-h-screen">
+      <div className="flex-1">
         <Header />
         
         <main className="container mx-auto py-12">
@@ -61,8 +61,49 @@ const Index = () => {
           
           <Carousel screens={carouselScreens} />
         </main>
+
+        {/* About Section */}
+        <section className="bg-muted py-16 mt-16">
+          <div className="container mx-auto px-8">
+            <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
+              <div>
+                <h3 className="text-lg font-semibold text-foreground mb-4">About</h3>
+                <ul className="space-y-2">
+                  <li><a href="#" className="text-muted-foreground hover:text-foreground transition-colors">About us</a></li>
+                  <li><a href="#" className="text-muted-foreground hover:text-foreground transition-colors">Careers</a></li>
+                  <li><a href="#" className="text-muted-foreground hover:text-foreground transition-colors">Contact us</a></li>
+                </ul>
+              </div>
+              
+              <div>
+                <h3 className="text-lg font-semibold text-foreground mb-4">Discover ENIAC</h3>
+                <ul className="space-y-2">
+                  <li><a href="#" className="text-muted-foreground hover:text-foreground transition-colors">Get the app</a></li>
+                  <li><a href="#" className="text-muted-foreground hover:text-foreground transition-colors">Teach on ENIAC</a></li>
+                  <li><a href="#" className="text-muted-foreground hover:text-foreground transition-colors">Plans and Pricing</a></li>
+                </ul>
+              </div>
+              
+              <div>
+                <h3 className="text-lg font-semibold text-foreground mb-4">ENIAC for Business</h3>
+                <ul className="space-y-2">
+                  <li><a href="#" className="text-muted-foreground hover:text-foreground transition-colors">ENIAC Business</a></li>
+                </ul>
+              </div>
+              
+              <div>
+                <h3 className="text-lg font-semibold text-foreground mb-4">Legal & Accessibility</h3>
+                <ul className="space-y-2">
+                  <li><a href="#" className="text-muted-foreground hover:text-foreground transition-colors">Accessibility statement</a></li>
+                  <li><a href="#" className="text-muted-foreground hover:text-foreground transition-colors">Privacy policy</a></li>
+                  <li><a href="#" className="text-muted-foreground hover:text-foreground transition-colors">Sitemap</a></li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </section>
       </div>
-    </>
+    </div>
   );
 };
 

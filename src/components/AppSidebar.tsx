@@ -28,19 +28,19 @@ export function AppSidebar() {
   };
 
   return (
-    <Sidebar className="w-1/4 bg-sidebar border-r border-sidebar-border" side="left">
-      <SidebarContent className="bg-sidebar">
+    <Sidebar className="w-80 bg-white border-l border-border shadow-lg" side="right" variant="floating">
+      <SidebarContent className="bg-white">
         <SidebarGroup>
-          <SidebarGroupLabel className="text-sidebar-foreground font-semibold text-lg mb-4">
+          <SidebarGroupLabel className="text-foreground font-semibold text-lg mb-4 px-4 pt-4">
             ENIAC Classes
           </SidebarGroupLabel>
           <SidebarGroupContent>
-            <SidebarMenu className="space-y-2">
+            <SidebarMenu className="space-y-1 px-2">
               {menuItems.map((item) => (
                 <SidebarMenuItem key={item.title}>
                   <SidebarMenuButton 
                     onClick={() => handleMenuClick(item.title)}
-                    className="w-full text-left py-3 px-4 text-sidebar-foreground hover:bg-sidebar-accent hover:text-sidebar-accent-foreground transition-colors duration-200 rounded-lg flex items-center gap-3"
+                    className="w-full text-left py-3 px-4 text-foreground hover:bg-accent hover:text-accent-foreground transition-colors duration-200 rounded-lg flex items-center gap-3"
                   >
                     <item.icon className="h-5 w-5" />
                     <span className="font-medium">{item.title}</span>
