@@ -85,14 +85,8 @@ const Header = () => {
           EXPLORE
         </button>
         
-        <SidebarTrigger asChild>
-          <Button 
-            variant="ghost" 
-            size="sm"
-            className="text-foreground hover:bg-foreground/10"
-          >
-            <Menu className="h-6 w-6" />
-          </Button>
+        <SidebarTrigger className="text-foreground hover:bg-foreground/10">
+          <Menu className="h-6 w-6" />
         </SidebarTrigger>
       </div>
     </header>
