@@ -28,7 +28,7 @@ export function AppSidebar() {
   };
 
   return (
-    <Sidebar className="w-80 bg-white border-l border-border shadow-lg" side="right" variant="floating">
+    <Sidebar className="w-80 bg-white border-l border-border shadow-lg" side="right" collapsible="offcanvas">
       <SidebarContent className="bg-white">
         <SidebarGroup>
           <SidebarGroupLabel className="text-foreground font-semibold text-lg mb-4 px-4 pt-4">

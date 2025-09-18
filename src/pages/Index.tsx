@@ -44,9 +44,9 @@ const Index = () => {
   ];
 
   return (
-    <div className="min-h-screen flex flex-col">
+    <>
       <AppSidebar />
-      <div className="flex-1">
+      <div className="flex-1 min-h-screen">
         <Header />
         
         <main className="container mx-auto py-12">
@@ -103,7 +103,7 @@ const Index = () => {
           </div>
         </section>
       </div>
-    </div>
+    </>
   );
 };
 
