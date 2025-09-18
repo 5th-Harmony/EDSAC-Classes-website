@@ -37,21 +37,30 @@ export function AppSidebar() {
 
   return (
     <>
-      {/* Menu Button */}
+      {/* Toggle Button */}
       <button
         onClick={toggleSidebar}
-        className="fixed top-4 right-4 z-50 bg-black text-white p-2 rounded-lg shadow-md hover:bg-white hover:text-black transition-colors"
+        className="fixed top-4 right-4 z-50 bg-white text-black p-2 rounded-lg shadow-md hover:bg-gray-100 transition-colors"
         aria-label="Toggle Sidebar"
       >
         <Menu className="h-6 w-6" />
       </button>
 
-      {/* Sidebar with animation */}
+      {/* Overlay backdrop */}
+      <div
+        className={`fixed inset-0 bg-black bg-opacity-50 z-40 transition-opacity duration-300 ${
+          isOpen ? "opacity-100 visible" : "opacity-0 invisible"
+        }`}
+        onClick={toggleSidebar}
+      />
+
+      {/* Sidebar */}
       <Sidebar
-        className={`w-80 fixed top-0 right-0 h-full z-40 transform transition-transform duration-300 ease-in-out
-          ${isOpen ? "translate-x-0" : "translate-x-full"} bg-black border-l border-white shadow-xl`}
+        className={`w-80 fixed top-0 right-0 h-full z-50 bg-white shadow-lg transform transition-transform duration-300 ease-in-out ${
+          isOpen ? "translate-x-0" : "translate-x-full"
+        }`}
       >
-        <SidebarContent className="bg-black text-white">
+        <SidebarContent className="bg-white text-black">
           <SidebarGroup>
             <SidebarGroupLabel className="font-semibold text-lg mb-4 px-4 pt-4">
               ENIAC Classes
@@ -62,9 +71,9 @@ export function AppSidebar() {
                   <SidebarMenuItem key={item.title}>
                     <SidebarMenuButton
                       onClick={() => handleMenuClick(item.title)}
-                      className="w-full text-left py-3 px-4 hover:bg-white hover:text-black transition-colors duration-200 rounded-lg flex items-center gap-3"
+                      className="w-full text-left py-3 px-4 hover:bg-gray-100 transition-colors duration-200 rounded-lg flex items-center gap-3 text-black"
                     >
-                      <item.icon className="h-5 w-5" />
+                      <item.icon className="h-5 w-5 text-black" />
                       <span className="font-medium">{item.title}</span>
                     </SidebarMenuButton>
                   </SidebarMenuItem>
