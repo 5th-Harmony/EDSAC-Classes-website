@@ -5,7 +5,6 @@ import {
 } from "lucide-react";
 
 const menuItems = [
-  { title: "Student Profile", icon: User },
   { title: "Teachers", icon: Users },
   { title: "Classes", icon: GraduationCap },
   { title: "Courses", icon: BookOpen },
