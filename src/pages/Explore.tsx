@@ -19,8 +19,7 @@ const Explore = () => {
       duration: "12 weeks",
       category: "Programming",
       difficulty: "Advanced",
-      price: "$199",
-      image: "/placeholder.svg",
+      image: "https://reactresources.com/images/react-advanced.png",
       description: "Master advanced React patterns and build scalable applications"
     },
     {
@@ -32,8 +31,7 @@ const Explore = () => {
       duration: "8 weeks",
       category: "AI/ML",
       difficulty: "Intermediate",
-      price: "$299",
-      image: "/placeholder.svg",
+      image: "https://miro.medium.com/v2/resize:fit:1400/format:webp/1*Zq7kU1Zq9rKXbXqv5ZzY3g.png",
       description: "Learn the basics of machine learning and data science"
     },
     {
@@ -45,8 +43,7 @@ const Explore = () => {
       duration: "6 weeks",
       category: "Design",
       difficulty: "Beginner",
-      price: "$149",
-      image: "/placeholder.svg",
+      image: "https://cdn.dribbble.com/users/240026/screenshots/14229584/media/4b3c3b3e3f3e3e3e3e3e3e3e3e3e3e3e.png",
       description: "Create stunning websites with modern design principles"
     },
     {
@@ -58,8 +55,7 @@ const Explore = () => {
       duration: "10 weeks",
       category: "Computer Science",
       difficulty: "Intermediate",
-      price: "$249",
-      image: "/placeholder.svg",
+      image: "https://upload.wikimedia.org/wikipedia/commons/thumb/5/5a/Data_structures.svg/1200px-Data_structures.svg.png",
       description: "Master fundamental computer science concepts"
     },
     {
@@ -71,8 +67,7 @@ const Explore = () => {
       duration: "4 weeks",
       category: "Marketing",
       difficulty: "Beginner",
-      price: "$99",
-      image: "/placeholder.svg",
+      image: "https://cdn.pixabay.com/photo/2017/06/10/07/18/marketing-2389233_1280.jpg",
       description: "Learn effective digital marketing techniques"
     },
     {
@@ -84,8 +79,7 @@ const Explore = () => {
       duration: "8 weeks",
       category: "Security",
       difficulty: "Intermediate",
-      price: "$299",
-      image: "/placeholder.svg",
+      image: "https://www.cyberark.com/wp-content/uploads/2021/03/Cybersecurity-Essentials.png",
       description: "Protect systems and data from cyber threats"
     }
   ];
@@ -95,13 +89,13 @@ const Explore = () => {
   return (
     <div className="min-h-screen bg-gradient-to-br from-background via-background to-muted/20">
       <Header />
-      
+
       <main className="container mx-auto px-4 py-8">
         {/* Header Section */}
         <div className="text-center mb-12">
           <h1 className="text-4xl font-bold text-foreground mb-4">Explore Courses</h1>
           <p className="text-xl text-muted-foreground mb-8">Discover new skills and advance your career</p>
-          
+
           {/* Search and Filter */}
           <div className="flex flex-col md:flex-row gap-4 max-w-2xl mx-auto mb-8">
             <div className="relative flex-1">
@@ -135,8 +129,8 @@ const Explore = () => {
             <Card key={course.id} className="group hover:shadow-lg transition-shadow duration-200">
               <CardHeader className="p-0">
                 <div className="relative overflow-hidden rounded-t-lg">
-                  <img 
-                    src={course.image} 
+                  <img
+                    src={course.image}
                     alt={course.title}
                     className="w-full h-48 object-cover group-hover:scale-105 transition-transform duration-200"
                   />
@@ -157,16 +151,16 @@ const Explore = () => {
                     {course.category}
                   </Badge>
                 </div>
-                
+
                 <CardTitle className="text-lg mb-2 line-clamp-2">{course.title}</CardTitle>
                 <CardDescription className="mb-4 line-clamp-2">
                   {course.description}
                 </CardDescription>
-                
+
                 <div className="text-sm text-muted-foreground mb-4">
                   By {course.instructor}
                 </div>
-                
+
                 <div className="flex items-center gap-4 text-sm text-muted-foreground mb-4">
                   <div className="flex items-center gap-1">
                     <Star className="h-4 w-4 fill-yellow-400 text-yellow-400" />
@@ -181,9 +175,8 @@ const Explore = () => {
                     <span>{course.duration}</span>
                   </div>
                 </div>
-                
-                <div className="flex items-center justify-between">
-                  <span className="text-2xl font-bold text-primary">{course.price}</span>
+
+                <div className="flex items-center justify-end">
                   <Button>Enroll Now</Button>
                 </div>
               </CardContent>
