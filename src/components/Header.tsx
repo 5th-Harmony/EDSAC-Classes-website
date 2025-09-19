@@ -51,7 +51,7 @@ const Header = () => {
           onClick={() => handleNavClick('home')}
           className="nav-button nav-button-secondary text-lg font-bold"
         >
-          ENIAC
+          EDSAC
         </button>
         
         <button 
