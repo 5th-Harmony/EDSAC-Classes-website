@@ -34,27 +34,24 @@ const App = () => (
             <AppSidebar />
           </Sidebar>
           <SidebarInset>
-            {/* Offset main content to the right of the fixed sidebar */}
-            <div className="ml-64">
-              <Routes>
-                {/* Existing routes */}
-                <Route path="/" element={<Index />} />
-                <Route path="/dashboard" element={<Dashboard />} />
-                <Route path="/explore" element={<Explore />} />
-                <Route path="/live-class/:roomId" element={<LiveClassPage />} />
+            <Routes>
+              {/* Existing routes */}
+              <Route path="/" element={<Index />} />
+              <Route path="/dashboard" element={<Dashboard />} />
+              <Route path="/explore" element={<Explore />} />
+              <Route path="/live-class/:roomId" element={<LiveClassPage />} />
 
-                {/* Newly added sidebar-linked routes */}
-                <Route path="/teachers" element={<Teachers />} />
-                <Route path="/materials" element={<Materials />} />
-                <Route path="/recordings" element={<Recordings />} />
-                <Route path="/tests" element={<Tests />} />
-                <Route path="/assignments" element={<Assignments />} />
-                <Route path="/grade-report" element={<GradeReport />} />
+              {/* Newly added sidebar-linked routes */}
+              <Route path="/teachers" element={<Teachers />} />
+              <Route path="/materials" element={<Materials />} />
+              <Route path="/recordings" element={<Recordings />} />
+              <Route path="/tests" element={<Tests />} />
+              <Route path="/assignments" element={<Assignments />} />
+              <Route path="/grade-report" element={<GradeReport />} />
 
-                {/* Catch-all route */}
-                <Route path="*" element={<NotFound />} />
-              </Routes>
-            </div>
+              {/* Catch-all route */}
+              <Route path="*" element={<NotFound />} />
+            </Routes>
           </SidebarInset>
         </SidebarProvider>
       </BrowserRouter>
