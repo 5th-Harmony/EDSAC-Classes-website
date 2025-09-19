@@ -7,7 +7,7 @@ import {
 
 const menuItems = [
   { title: "Teachers", icon: Users, path: "/teachers" },
-  { title: "Live Classes", icon: GraduationCap, path: "/explore" },
+  { title: "Live Classes", icon: GraduationCap, path: "/live-class/general" },
   { title: "Recordings", icon: Play, path: "/recordings" },
   { title: "Tests", icon: FileText, path: "/tests" },
   { title: "Assignments", icon: ClipboardList, path: "/assignments" },
