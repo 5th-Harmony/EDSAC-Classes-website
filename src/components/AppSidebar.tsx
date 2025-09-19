@@ -1,25 +1,28 @@
 import { useState } from "react";
+import { useNavigate } from "react-router-dom";
 import {
   User, Users, BookOpen, Play, FileText,
   ClipboardList, BarChart3, GraduationCap, Menu
 } from "lucide-react";
 
 const menuItems = [
-  { title: "Teachers", icon: Users },
-  { title: "Live Classes", icon: GraduationCap },
-  { title: "Recordings", icon: Play },
-  { title: "Tests", icon: FileText },
-  { title: "Assignments", icon: ClipboardList },
-  { title: "Grade Report", icon: BarChart3 },
+  { title: "Teachers", icon: Users, path: "/teachers" },
+  { title: "Live Classes", icon: GraduationCap, path: "/explore" },
+  { title: "Recordings", icon: Play, path: "/recordings" },
+  { title: "Tests", icon: FileText, path: "/tests" },
+  { title: "Assignments", icon: ClipboardList, path: "/assignments" },
+  { title: "Grade Report", icon: BarChart3, path: "/grade-report" },
 ];
 
 export function AppSidebar() {
   const [isOpen, setIsOpen] = useState(false);
+  const navigate = useNavigate();
 
   const toggleSidebar = () => setIsOpen(!isOpen);
 
-  const handleMenuClick = (title: string) => {
-    console.log(`Clicked: ${title}`);
+  const handleMenuClick = (path: string) => {
+    navigate(path);
+    setIsOpen(false);
   };
 
   return (
@@ -45,7 +48,7 @@ export function AppSidebar() {
               key={item.title}
               className="flex items-center gap-3 px-4 py-3 hover:bg-gray-100 cursor-pointer transition-colors duration-200"
               style={{ transitionDelay: `${index * 50}ms` }}
-              onClick={() => handleMenuClick(item.title)}
+              onClick={() => handleMenuClick(item.path)}
             >
               <item.icon className="h-5 w-5 text-black" />
               <span className="font-medium text-black">{item.title}</span>
