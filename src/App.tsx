@@ -15,6 +15,7 @@ import Explore from "./pages/Explore";
 
 // Newly added sidebar-linked pages
 import Teachers from "./pages/Teachers";
+import Materials from "./pages/Materials";
 import Recordings from "./pages/Recordings";
 import Tests from "./pages/Tests";
 import Assignments from "./pages/Assignments";
@@ -42,6 +43,7 @@ const App = () => (
 
               {/* Newly added sidebar-linked routes */}
               <Route path="/teachers" element={<Teachers />} />
+              <Route path="/materials" element={<Materials />} />
               <Route path="/recordings" element={<Recordings />} />
               <Route path="/tests" element={<Tests />} />
               <Route path="/assignments" element={<Assignments />} />
