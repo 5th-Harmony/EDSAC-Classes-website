@@ -52,10 +52,10 @@ const Index = () => {
         <main className="w-full max-w-7xl mx-auto px-4 lg:px-8 py-8">
           <div className="text-center mb-16 animate-fade-in">
             <h1 className="text-4xl lg:text-6xl font-bold text-foreground mb-6 tracking-tight">
-              Welcome to ENIAC Classes
+              Welcome to EDSAC Classes
             </h1>
             <p className="text-lg lg:text-xl text-muted-foreground max-w-3xl mx-auto leading-relaxed">
-              Explore our interactive platform for education in rural schools
+              Explore our interactive platform for online education in colleges
             </p>
           </div>
           
