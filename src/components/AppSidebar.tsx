@@ -7,7 +7,6 @@ import {
 const menuItems = [
   { title: "Teachers", icon: Users },
   { title: "Live Classes", icon: GraduationCap },
-  { title: "Courses", icon: BookOpen },
   { title: "Recordings", icon: Play },
   { title: "Tests", icon: FileText },
   { title: "Assignments", icon: ClipboardList },
