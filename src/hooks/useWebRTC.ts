@@ -81,96 +81,7 @@ export const useWebRTC = ({ roomId, token, onPeerJoined, onPeerLeft, onChatMessa
 
     socketConnection.on('new-producer', async (data) => {
       console.log('New producer:', data);
-      await consume(socketConnection, roomId, data.producerId, data.peerId);
-    });
-
-    socketConnection.on('transport-created', async (data) => {
-      if (data.direction === 'send') {
-        try {
-          const transport = device!.createSendTransport(data);
-          
-          transport.on('connect', ({ dtlsParameters }, callback, errback) => {
-            socketConnection.emit('connect-transport', {
-              roomId,
-              transportId: transport.id,
-              dtlsParameters
-            });
-            // Server-side will respond with 'transport-connected'
-          });
-
-          transport.on('produce', async ({ kind, rtpParameters }, callback, errback) => {
-            socketConnection.emit('produce', {
-              roomId,
-              transportId: transport.id,
-              kind,
-              rtpParameters
-            });
-            // Server-side will respond with 'produced'
-          });
-
-          sendTransportRef.current = transport;
-        } catch (error) {
-          console.error('Error creating send transport:', error);
-        }
-      } else if (data.direction === 'recv') {
-        try {
-          const transport = device!.createRecvTransport(data);
-          
-          transport.on('connect', ({ dtlsParameters }, callback, errback) => {
-            socketConnection.emit('connect-transport', {
-              roomId,
-              transportId: transport.id,
-              dtlsParameters
-            });
-            // Server-side will respond with 'transport-connected'
-          });
-
-          recvTransportRef.current = transport;
-        } catch (error) {
-          console.error('Error creating recv transport:', error);
-        }
-      }
-    });
-
-    socketConnection.on('transport-connected', ({ transportId }) => {
-      const transport = sendTransportRef.current?.id === transportId 
-        ? sendTransportRef.current 
-        : recvTransportRef.current;
-      
-      if (transport) {
-        // Mediasoup's transport.on('connect') callback can now be called
-        // This is handled internally by the mediasoup-client library
-      }
-    });
-
-    socketConnection.on('produced', ({ producerId, kind }) => {
-      // This confirms that the server has created the producer
-      console.log(`Produced ${kind} with id ${producerId}`);
-    });
-
-    socketConnection.on('consumed', async (data) => {
-      const { consumerId, producerId, kind, rtpParameters } = data;
-      
-      const consumer = await recvTransportRef.current!.consume({
-        id: consumerId,
-        producerId,
-        kind,
-        rtpParameters,
-      });
-
-      consumersRef.current.set(consumerId, consumer);
-
-      const stream = new MediaStream();
-      stream.addTrack(consumer.track);
-
-      setRemoteStreams(prev => {
-        const newStreams = new Map(prev);
-        // The key should be the peerId associated with this producer
-        // This part needs the peerId from the 'new-producer' event
-        // For now, we'll use producerId as a placeholder key
-        newStreams.set(producerId, stream);
-        return newStreams;
-      });
+      await consume(socketConnection, roomId, data.producerId);
     });
 
     socketConnection.on('chat-message', (message) => {
@@ -195,11 +106,82 @@ export const useWebRTC = ({ roomId, token, onPeerJoined, onPeerLeft, onChatMessa
   };
 
   const createSendTransport = async (socket: Socket, roomId: string) => {
-    socket.emit('create-transport', { roomId, direction: 'send' });
+    return new Promise<void>((resolve, reject) => {
+      socket.emit('create-transport', { roomId, direction: 'send' });
+
+      socket.on('transport-created', async (data) => {
+        if (data.direction === 'send') {
+          try {
+            const transport = device!.createSendTransport(data);
+            
+            transport.on('connect', ({ dtlsParameters }, callback, errback) => {
+              socket.emit('connect-transport', {
+                roomId,
+                transportId: transport.id,
+                dtlsParameters
+              });
+
+              socket.on('transport-connected', (response) => {
+                if (response.transportId === transport.id) {
+                  callback();
+                }
+              });
+            });
+
+            transport.on('produce', ({ kind, rtpParameters }, callback, errback) => {
+              socket.emit('produce', {
+                roomId,
+                transportId: transport.id,
+                kind,
+                rtpParameters
+              });
+
+              socket.on('produced', (response) => {
+                callback({ id: response.producerId });
+              });
+            });
+
+            sendTransportRef.current = transport;
+            resolve();
+          } catch (error) {
+            reject(error);
+          }
+        }
+      });
+    });
   };
 
   const createRecvTransport = async (socket: Socket, roomId: string) => {
-    socket.emit('create-transport', { roomId, direction: 'recv' });
+    return new Promise<void>((resolve, reject) => {
+      socket.emit('create-transport', { roomId, direction: 'recv' });
+
+      socket.on('transport-created', async (data) => {
+        if (data.direction === 'recv') {
+          try {
+            const transport = device!.createRecvTransport(data);
+            
+            transport.on('connect', ({ dtlsParameters }, callback, errback) => {
+              socket.emit('connect-transport', {
+                roomId,
+                transportId: transport.id,
+                dtlsParameters
+              });
+
+              socket.on('transport-connected', (response) => {
+                if (response.transportId === transport.id) {
+                  callback();
+                }
+              });
+            });
+
+            recvTransportRef.current = transport;
+            resolve();
+          } catch (error) {
+            reject(error);
+          }
+        }
+      });
+    });
   };
 
   const startVideo = async () => {
@@ -244,7 +226,7 @@ export const useWebRTC = ({ roomId, token, onPeerJoined, onPeerLeft, onChatMessa
     producersRef.current.clear();
   };
 
-  const consume = async (socket: Socket, roomId: string, producerId: string, peerId: string) => {
+  const consume = async (socket: Socket, roomId: string, producerId: string) => {
     if (!recvTransportRef.current || !device) return;
 
     socket.emit('consume', {
@@ -252,6 +234,26 @@ export const useWebRTC = ({ roomId, token, onPeerJoined, onPeerLeft, onChatMessa
       transportId: recvTransportRef.current.id,
       producerId,
       rtpCapabilities: device.rtpCapabilities
+    });
+
+    socket.on('consumed', async (data) => {
+      if (data.producerId === producerId) {
+        const consumer = await recvTransportRef.current!.consume({
+          id: data.consumerId,
+          producerId: data.producerId,
+          kind: data.kind,
+          rtpParameters: data.rtpParameters
+        });
+
+        consumersRef.current.set(data.consumerId, consumer);
+
+        // Resume consumer
+        socket.emit('resume-consumer', { roomId, consumerId: data.consumerId });
+
+        // Add track to remote stream
+        const stream = new MediaStream([consumer.track]);
+        setRemoteStreams(prev => new Map(prev.set(data.producerId, stream)));
+      }
     });
   };
 
