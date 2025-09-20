@@ -53,7 +53,7 @@ export function AppSidebar() {
                 onClick={() => handleMenuClick(item.path)}
               >
                 <item.icon className="h-5 w-5 text-primary group-hover:scale-110 transition-transform duration-200" />
-                <span className="font-medium text-foreground group-hover:text-primary transition-colors duration-200 text-sm lg:text-base">
+                <span className="font-medium text-black group-hover:text-primary transition-colors duration-200 text-sm lg:text-base">
                   {item.title}
                 </span>
               </li>
