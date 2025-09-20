@@ -44,66 +44,63 @@ const Index = () => {
   ];
 
   return (
-    <>
-      <AppSidebar />
-      <div className="flex-1 min-h-screen">
-        <Header />
+    <div className="min-h-screen w-full">
+      <Header />
+      
+      <main className="w-full max-w-7xl mx-auto px-4 lg:px-8 py-8">
+        <div className="text-center mb-16 animate-fade-in">
+          <h1 className="text-4xl lg:text-6xl font-bold text-foreground mb-6 tracking-tight">
+            Welcome to EDSAC Classes
+          </h1>
+          <p className="text-lg lg:text-xl text-muted-foreground max-w-3xl mx-auto leading-relaxed">
+            Explore our interactive platform for online education in colleges
+          </p>
+        </div>
         
-        <main className="w-full max-w-7xl mx-auto px-4 lg:px-8 py-8">
-          <div className="text-center mb-16 animate-fade-in">
-            <h1 className="text-4xl lg:text-6xl font-bold text-foreground mb-6 tracking-tight">
-              Welcome to EDSAC Classes
-            </h1>
-            <p className="text-lg lg:text-xl text-muted-foreground max-w-3xl mx-auto leading-relaxed">
-              Explore our interactive platform for online education in colleges
-            </p>
-          </div>
-          
-          <Carousel screens={carouselScreens} />
-        </main>
+        <Carousel screens={carouselScreens} />
+      </main>
 
-        {/* About Section */}
-        <section className="bg-muted/30 py-20 mt-20 border-t border-border/40">
-          <div className="w-full max-w-7xl mx-auto px-4 lg:px-8">
-            <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
-              <div>
-                <h3 className="text-lg font-semibold text-foreground mb-4">About</h3>
-                <ul className="space-y-2">
-                  <li><a href="#" className="text-muted-foreground hover:text-foreground transition-colors">About us</a></li>
-                  <li><a href="#" className="text-muted-foreground hover:text-foreground transition-colors">Careers</a></li>
-                  <li><a href="#" className="text-muted-foreground hover:text-foreground transition-colors">Contact us</a></li>
-                </ul>
-              </div>
-              
-              <div>
-                <h3 className="text-lg font-semibold text-foreground mb-4">Discover ENIAC</h3>
-                <ul className="space-y-2">
-                  <li><a href="#" className="text-muted-foreground hover:text-foreground transition-colors">Get the app</a></li>
-                  <li><a href="#" className="text-muted-foreground hover:text-foreground transition-colors">Teach on ENIAC</a></li>
-                  <li><a href="#" className="text-muted-foreground hover:text-foreground transition-colors">Plans and Pricing</a></li>
-                </ul>
-              </div>
-              
-              <div>
-                <h3 className="text-lg font-semibold text-foreground mb-4">ENIAC for Business</h3>
-                <ul className="space-y-2">
-                  <li><a href="#" className="text-muted-foreground hover:text-foreground transition-colors">ENIAC Business</a></li>
-                </ul>
-              </div>
-              
-              <div>
-                <h3 className="text-lg font-semibold text-foreground mb-4">Legal & Accessibility</h3>
-                <ul className="space-y-2">
-                  <li><a href="#" className="text-muted-foreground hover:text-foreground transition-colors">Accessibility statement</a></li>
-                  <li><a href="#" className="text-muted-foreground hover:text-foreground transition-colors">Privacy policy</a></li>
-                  <li><a href="#" className="text-muted-foreground hover:text-foreground transition-colors">Sitemap</a></li>
-                </ul>
-              </div>
+      {/* About Section */}
+      <section className="bg-muted/30 py-20 mt-20 border-t border-border/40">
+        <div className="w-full max-w-7xl mx-auto px-4 lg:px-8">
+          <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
+            <div>
+              <h3 className="text-lg font-semibold text-foreground mb-4">About</h3>
+              <ul className="space-y-2">
+                <li><a href="#" className="text-muted-foreground hover:text-foreground transition-colors">About us</a></li>
+                <li><a href="#" className="text-muted-foreground hover:text-foreground transition-colors">Careers</a></li>
+                <li><a href="#" className="text-muted-foreground hover:text-foreground transition-colors">Contact us</a></li>
+              </ul>
+            </div>
+            
+            <div>
+              <h3 className="text-lg font-semibold text-foreground mb-4">Discover ENIAC</h3>
+              <ul className="space-y-2">
+                <li><a href="#" className="text-muted-foreground hover:text-foreground transition-colors">Get the app</a></li>
+                <li><a href="#" className="text-muted-foreground hover:text-foreground transition-colors">Teach on ENIAC</a></li>
+                <li><a href="#" className="text-muted-foreground hover:text-foreground transition-colors">Plans and Pricing</a></li>
+              </ul>
+            </div>
+            
+            <div>
+              <h3 className="text-lg font-semibold text-foreground mb-4">ENIAC for Business</h3>
+              <ul className="space-y-2">
+                <li><a href="#" className="text-muted-foreground hover:text-foreground transition-colors">ENIAC Business</a></li>
+              </ul>
+            </div>
+            
+            <div>
+              <h3 className="text-lg font-semibold text-foreground mb-4">Legal & Accessibility</h3>
+              <ul className="space-y-2">
+                <li><a href="#" className="text-muted-foreground hover:text-foreground transition-colors">Accessibility statement</a></li>
+                <li><a href="#" className="text-muted-foreground hover:text-foreground transition-colors">Privacy policy</a></li>
+                <li><a href="#" className="text-muted-foreground hover:text-foreground transition-colors">Sitemap</a></li>
+              </ul>
             </div>
           </div>
-        </section>
-      </div>
-    </>
+        </div>
+      </section>
+    </div>
   );
 };
 
