@@ -57,7 +57,7 @@ const Header = () => {
           onClick={() => handleNavClick('materials')}
           className="nav-button nav-button-outline"
         >
-          MATERIALS
+          UPDATES
         </button>
       </div>
 
