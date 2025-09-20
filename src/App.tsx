@@ -27,30 +27,28 @@ const App = () => (
   <QueryClientProvider client={queryClient}>
     <TooltipProvider>
       <BrowserRouter>
-        <div className="flex min-h-screen w-full">
+        <div className="min-h-screen w-full relative">
           <Toaster />
           <Sonner />
           <AppSidebar />
-          <main className="flex-1 w-full">
-            <Routes>
-              {/* Existing routes */}
-              <Route path="/" element={<Index />} />
-              <Route path="/dashboard" element={<Dashboard />} />
-              <Route path="/explore" element={<Explore />} />
-              <Route path="/live-class/:roomId" element={<LiveClassPage />} />
+          <Routes>
+            {/* Existing routes */}
+            <Route path="/" element={<Index />} />
+            <Route path="/dashboard" element={<Dashboard />} />
+            <Route path="/explore" element={<Explore />} />
+            <Route path="/live-class/:roomId" element={<LiveClassPage />} />
 
-              {/* Newly added sidebar-linked routes */}
-              <Route path="/teachers" element={<Teachers />} />
-              <Route path="/materials" element={<Materials />} />
-              <Route path="/recordings" element={<Recordings />} />
-              <Route path="/tests" element={<Tests />} />
-              <Route path="/assignments" element={<Assignments />} />
-              <Route path="/grade-report" element={<GradeReport />} />
+            {/* Newly added sidebar-linked routes */}
+            <Route path="/teachers" element={<Teachers />} />
+            <Route path="/materials" element={<Materials />} />
+            <Route path="/recordings" element={<Recordings />} />
+            <Route path="/tests" element={<Tests />} />
+            <Route path="/assignments" element={<Assignments />} />
+            <Route path="/grade-report" element={<GradeReport />} />
 
-              {/* Catch-all route */}
-              <Route path="*" element={<NotFound />} />
-            </Routes>
-          </main>
+            {/* Catch-all route */}
+            <Route path="*" element={<NotFound />} />
+          </Routes>
         </div>
       </BrowserRouter>
     </TooltipProvider>
