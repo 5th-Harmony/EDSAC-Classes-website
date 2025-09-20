@@ -27,36 +27,48 @@ export function AppSidebar() {
   };
 
   return (
-    <div className="relative z-50">
-      {/* Fixed Menu Icon */}
+    <>
+      {/* Fixed Menu Icon - responsive positioning */}
       <button
         onClick={toggleSidebar}
-        className="fixed top-4 right-4 bg-white text-black p-2 rounded-lg shadow-md hover:bg-gray-100 transition-colors"
+        className="fixed top-4 right-4 z-50 bg-white/90 backdrop-blur-sm text-black p-2 rounded-lg shadow-lg hover:bg-white/100 transition-all duration-300 hover:scale-105 lg:top-6 lg:right-6"
         aria-label="Toggle Menu"
       >
-        <Menu className="h-6 w-6" />
+        <Menu className="h-5 w-5 lg:h-6 lg:w-6" />
       </button>
 
-      {/* Dropdown Menu */}
+      {/* Dropdown Menu - responsive sizing and positioning */}
       <div
-        className={`fixed top-16 right-4 w-64 bg-white rounded-lg shadow-lg overflow-hidden transition-all duration-300 ease-in-out ${
-          isOpen ? "max-h-[500px] opacity-100 scale-100" : "max-h-0 opacity-0 scale-95"
+        className={`fixed top-16 right-4 w-72 lg:w-80 bg-white/95 backdrop-blur-sm rounded-xl shadow-2xl overflow-hidden transition-all duration-300 ease-in-out z-40 lg:top-20 lg:right-6 ${
+          isOpen ? "max-h-[600px] opacity-100 scale-100" : "max-h-0 opacity-0 scale-95"
         }`}
       >
-        <ul className="divide-y divide-gray-200">
-          {menuItems.map((item, index) => (
-            <li
-              key={item.title}
-              className="flex items-center gap-3 px-4 py-3 hover:bg-gray-100 cursor-pointer transition-colors duration-200"
-              style={{ transitionDelay: `${index * 50}ms` }}
-              onClick={() => handleMenuClick(item.path)}
-            >
-              <item.icon className="h-5 w-5 text-black" />
-              <span className="font-medium text-black">{item.title}</span>
-            </li>
-          ))}
-        </ul>
+        <div className="p-2">
+          <ul className="space-y-1">
+            {menuItems.map((item, index) => (
+              <li
+                key={item.title}
+                className="flex items-center gap-3 px-4 py-3 rounded-lg hover:bg-primary/10 cursor-pointer transition-all duration-200 hover:scale-[1.02] group"
+                style={{ transitionDelay: `${index * 50}ms` }}
+                onClick={() => handleMenuClick(item.path)}
+              >
+                <item.icon className="h-5 w-5 text-primary group-hover:scale-110 transition-transform duration-200" />
+                <span className="font-medium text-foreground group-hover:text-primary transition-colors duration-200 text-sm lg:text-base">
+                  {item.title}
+                </span>
+              </li>
+            ))}
+          </ul>
+        </div>
       </div>
-    </div>
+
+      {/* Backdrop overlay for mobile */}
+      {isOpen && (
+        <div
+          className="fixed inset-0 bg-black/20 backdrop-blur-sm z-30 lg:hidden"
+          onClick={() => setIsOpen(false)}
+        />
+      )}
+    </>
   );
 }

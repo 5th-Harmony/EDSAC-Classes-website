@@ -27,13 +27,11 @@ const App = () => (
   <QueryClientProvider client={queryClient}>
     <TooltipProvider>
       <BrowserRouter>
-        <SidebarProvider>
+        <div className="flex min-h-screen w-full">
           <Toaster />
           <Sonner />
-          <Sidebar>
-            <AppSidebar />
-          </Sidebar>
-          <SidebarInset>
+          <AppSidebar />
+          <main className="flex-1 w-full">
             <Routes>
               {/* Existing routes */}
               <Route path="/" element={<Index />} />
@@ -52,8 +50,8 @@ const App = () => (
               {/* Catch-all route */}
               <Route path="*" element={<NotFound />} />
             </Routes>
-          </SidebarInset>
-        </SidebarProvider>
+          </main>
+        </div>
       </BrowserRouter>
     </TooltipProvider>
   </QueryClientProvider>
