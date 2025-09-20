@@ -8,13 +8,13 @@ const Index = () => {
     {
       id: 1,
       title: "Featured Content",
-      content: "Discover amazing features and explore our latest offerings. All educational materials will be updated as per the latest syllabus.",
+      content: "Discover amazing features and explore our latest offerings. All educational materials will be updated as per the syllabus.",
       backgroundColor: "hsl(0, 0%, 8%)",
     },
     {
       id: 2,
       title: "Courses Offered",
-      content: "Experience the opportunity to learn smart with interactive programmes offered for classes 5 to 12. Courses include all available streams for the particular board.",
+      content: "Experience the opportunity to learn smart with our interactive programmes offered for both bachelors and masters. Courses include all available streams in the particular institution.",
       backgroundColor: "hsl(220, 15%, 10%)",
     },
     {
