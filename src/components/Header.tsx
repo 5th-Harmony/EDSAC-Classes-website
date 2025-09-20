@@ -98,18 +98,18 @@ const Header = () => {
           SIGN UP
         </button>
         
-        <button 
-          onClick={() => handleNavClick('explore')}
-          className="nav-button nav-button-outline"
-        >
-          EXPLORE
-        </button>
-        
         <button
           onClick={() => handleNavClick('dashboard')}
           className="text-foreground hover:bg-accent rounded-lg p-2 transition-colors"
         >
           <User className="h-5 w-5" />
+        </button>
+        
+        <button 
+          onClick={() => handleNavClick('explore')}
+          className="nav-button nav-button-outline"
+        >
+          EXPLORE
         </button>
       </div>
     </header>
