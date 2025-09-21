@@ -10,7 +10,7 @@ const Dashboard = () => {
     <div className="min-h-screen bg-gradient-to-br from-background via-background to-muted/20">
       <Header />
       
-      <main className="container mx-auto px-4 py-8">
+      <main className="px-4 py-8">
         {/* Welcome Section */}
         <div className="mb-8">
           <div className="flex items-center space-x-4 mb-4">

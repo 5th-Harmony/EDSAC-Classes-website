@@ -63,7 +63,7 @@ const Header = () => {
       </div>
 
       {/* Search Bar */}
-      <div className="flex-1 max-w-2xl mx-8">
+      <div className="flex-1 mx-8">
         <form onSubmit={handleSearchSubmit} className="relative">
           <Input 
             type="text"

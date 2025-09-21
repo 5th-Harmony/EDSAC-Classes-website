@@ -45,11 +45,10 @@ const Index = () => {
 
   return (
     <>
-      <AppSidebar />
       <div className="flex-1 min-h-screen">
         <Header />
         
-        <main className="w-full max-w-7xl mx-auto px-4 lg:px-8 py-8">
+        <main className="w-full px-4 lg:px-8 py-8">
           <div className="text-center mb-16 animate-fade-in">
             <h1 className="text-4xl lg:text-6xl font-bold text-foreground mb-6 tracking-tight">
               Welcome to EDSAC Classes
@@ -64,7 +63,7 @@ const Index = () => {
 
         {/* About Section */}
         <section className="bg-muted/30 py-20 mt-20 border-t border-border/40">
-          <div className="w-full max-w-7xl mx-auto px-4 lg:px-8">
+          <div className="w-full px-4 lg:px-8">
             <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
               <div>
                 <h3 className="text-lg font-semibold text-foreground mb-4">About</h3>

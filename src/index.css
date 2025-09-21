@@ -105,8 +105,11 @@ All colors MUST be HSL.
     @apply border-border;
   }
 
-  body {
+  html {
     background: var(--gradient-primary);
+  }
+
+  body {
     @apply text-foreground min-h-screen;
   }
 }
