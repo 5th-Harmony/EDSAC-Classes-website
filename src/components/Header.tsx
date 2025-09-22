@@ -1,13 +1,14 @@
 import { Search, Menu, User } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
-import { SidebarTrigger } from "@/components/ui/sidebar";
+import { useSidebar } from "@/components/ui/sidebar";
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 
 const Header = () => {
   const [searchValue, setSearchValue] = useState("");
   const navigate = useNavigate();
+  const { toggleSidebar } = useSidebar();
 
   const handleNavClick = (section: string) => {
     switch (section) {
@@ -113,9 +114,12 @@ const Header = () => {
           <User className="h-5 w-5" />
         </button>
         
-        <SidebarTrigger className="text-foreground hover:bg-accent rounded-lg p-2 transition-colors">
+        <button
+          onClick={toggleSidebar}
+          className="text-foreground hover:bg-accent rounded-lg p-2 transition-colors"
+        >
           <Menu className="h-5 w-5" />
-        </SidebarTrigger>
+        </button>
       </div>
     </header>
   );
