@@ -44,7 +44,7 @@ const Header = () => {
   };
 
   return (
-    <header className="w-full px-4 lg:px-8 py-4 flex items-center justify-between animate-fade-in bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60 border-b border-border/40">
+    <header className="w-full px-4 lg:px-8 py-4 flex items-center justify-between animate-fade-in bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60 border-b border-border/40 z-50">
       {/* Logo */}
       <div className="flex items-center space-x-8">
         <button 

@@ -1,6 +1,4 @@
-import Header from "@/components/Header";
 import Carousel from "@/components/Carousel";
-import { AppSidebar } from "@/components/AppSidebar";
 
 const Index = () => {
   // Sample data for the 6 screens - easily customizable
@@ -46,7 +44,7 @@ const Index = () => {
   return (
     <>
       <div className="flex-1 min-h-screen">
-        <Header />
+        
         
         <main className="w-full px-4 lg:px-8 py-8">
           <div className="text-center mb-16 animate-fade-in">
@@ -75,18 +73,18 @@ const Index = () => {
               </div>
               
               <div>
-                <h3 className="text-lg font-semibold text-foreground mb-4">Discover ENIAC</h3>
+                <h3 className="text-lg font-semibold text-foreground mb-4">Discover EDSAC</h3>
                 <ul className="space-y-2">
                   <li><a href="#" className="text-muted-foreground hover:text-foreground transition-colors">Get the app</a></li>
-                  <li><a href="#" className="text-muted-foreground hover:text-foreground transition-colors">Teach on ENIAC</a></li>
+                  <li><a href="#" className="text-muted-foreground hover:text-foreground transition-colors">Teach on EDSAC</a></li>
                   <li><a href="#" className="text-muted-foreground hover:text-foreground transition-colors">Plans and Pricing</a></li>
                 </ul>
               </div>
               
               <div>
-                <h3 className="text-lg font-semibold text-foreground mb-4">ENIAC for Business</h3>
+                <h3 className="text-lg font-semibold text-foreground mb-4">EDSAC for Business</h3>
                 <ul className="space-y-2">
-                  <li><a href="#" className="text-muted-foreground hover:text-foreground transition-colors">ENIAC Business</a></li>
+                  <li><a href="#" className="text-muted-foreground hover:text-foreground transition-colors">EDSAC Business</a></li>
                 </ul>
               </div>
               

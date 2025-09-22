@@ -20,6 +20,7 @@ import Recordings from "./pages/Recordings";
 import Tests from "./pages/Tests";
 import Assignments from "./pages/Assignments";
 import GradeReport from "./pages/GradeReport";
+import Header from "@/components/Header";
 
 const queryClient = new QueryClient();
 
@@ -30,10 +31,11 @@ const App = () => (
         <SidebarProvider defaultOpen={false}>
           <Toaster />
           <Sonner />
-          <Sidebar collapsible="icon">
+          <Sidebar collapsible="offcanvas">
             <AppSidebar />
           </Sidebar>
           <SidebarInset>
+            <Header />
             <Routes>
               {/* Existing routes */}
               <Route path="/" element={<Index />} />
