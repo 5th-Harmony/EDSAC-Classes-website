@@ -1,14 +1,23 @@
-import { Search, Menu, User } from "lucide-react";
+import { Search, Menu, User, Users, BookOpen, Play, FileText, ClipboardList, BarChart3, GraduationCap } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
-import { useSidebar } from "@/components/ui/sidebar";
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 
+const menuItems = [
+  { title: "Teachers", icon: Users, path: "/teachers" },
+  { title: "Live Classes", icon: GraduationCap, path: "/live-class/general" },
+  { title: "Materials", icon: BookOpen, path: "/materials" },
+  { title: "Recordings", icon: Play, path: "/recordings" },
+  { title: "Tests", icon: FileText, path: "/tests" },
+  { title: "Assignments", icon: ClipboardList, path: "/assignments" },
+  { title: "Grade Report", icon: BarChart3, path: "/grade-report" },
+];
+
 const Header = () => {
   const [searchValue, setSearchValue] = useState("");
+  const [isMenuOpen, setIsMenuOpen] = useState(false);
   const navigate = useNavigate();
-  const { toggleSidebar } = useSidebar();
 
   const handleNavClick = (section: string) => {
     switch (section) {
@@ -22,7 +31,7 @@ const Header = () => {
         navigate('/dashboard');
         break;
       case 'materials':
-        console.log('Materials clicked');
+        navigate('/materials');
         break;
       case 'login':
         console.log('Login clicked');
@@ -33,6 +42,13 @@ const Header = () => {
       default:
         console.log(`Navigating to: ${section}`);
     }
+  };
+
+  const toggleMenu = () => setIsMenuOpen(!isMenuOpen);
+
+  const handleMenuClick = (path: string) => {
+    navigate(path);
+    setIsMenuOpen(false);
   };
 
   const handleSearchChange = (e: React.ChangeEvent<HTMLInputElement>) => {
@@ -114,12 +130,35 @@ const Header = () => {
           <User className="h-5 w-5" />
         </button>
         
-        <button
-          onClick={toggleSidebar}
-          className="text-foreground hover:bg-accent rounded-lg p-2 transition-colors"
-        >
-          <Menu className="h-5 w-5" />
-        </button>
+        <div className="relative">
+          <button
+            onClick={toggleMenu}
+            className="text-foreground hover:bg-accent rounded-lg p-2 transition-colors"
+          >
+            <Menu className="h-5 w-5" />
+          </button>
+          
+          {/* Dropdown Menu */}
+          <div
+            className={`absolute top-12 right-0 w-64 bg-white rounded-lg shadow-lg overflow-hidden transition-all duration-300 ease-in-out z-50 ${
+              isMenuOpen ? "max-h-[500px] opacity-100 scale-100" : "max-h-0 opacity-0 scale-95"
+            }`}
+          >
+            <ul className="divide-y divide-gray-200">
+              {menuItems.map((item, index) => (
+                <li
+                  key={item.title}
+                  className="flex items-center gap-3 px-4 py-3 hover:bg-gray-100 cursor-pointer transition-colors duration-200"
+                  style={{ transitionDelay: `${index * 50}ms` }}
+                  onClick={() => handleMenuClick(item.path)}
+                >
+                  <item.icon className="h-5 w-5 text-black" />
+                  <span className="font-medium text-black">{item.title}</span>
+                </li>
+              ))}
+            </ul>
+          </div>
+        </div>
       </div>
     </header>
   );

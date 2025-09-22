@@ -1,8 +1,6 @@
 import { Toaster } from "@/components/ui/toaster";
 import { Toaster as Sonner } from "@/components/ui/sonner";
 import { TooltipProvider } from "@/components/ui/tooltip";
-import { SidebarProvider, Sidebar, SidebarInset } from "@/components/ui/sidebar";
-import { AppSidebar } from "@/components/AppSidebar";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 
@@ -28,34 +26,29 @@ const App = () => (
   <QueryClientProvider client={queryClient}>
     <TooltipProvider>
       <BrowserRouter>
-        <SidebarProvider defaultOpen={false}>
+        <div className="min-h-screen w-full">
           <Toaster />
           <Sonner />
-          <Sidebar collapsible="offcanvas">
-            <AppSidebar />
-          </Sidebar>
-          <SidebarInset>
-            <Header />
-            <Routes>
-              {/* Existing routes */}
-              <Route path="/" element={<Index />} />
-              <Route path="/dashboard" element={<Dashboard />} />
-              <Route path="/explore" element={<Explore />} />
-              <Route path="/live-class/:roomId" element={<LiveClassPage />} />
+          <Header />
+          <Routes>
+            {/* Existing routes */}
+            <Route path="/" element={<Index />} />
+            <Route path="/dashboard" element={<Dashboard />} />
+            <Route path="/explore" element={<Explore />} />
+            <Route path="/live-class/:roomId" element={<LiveClassPage />} />
 
-              {/* Newly added sidebar-linked routes */}
-              <Route path="/teachers" element={<Teachers />} />
-              <Route path="/materials" element={<Materials />} />
-              <Route path="/recordings" element={<Recordings />} />
-              <Route path="/tests" element={<Tests />} />
-              <Route path="/assignments" element={<Assignments />} />
-              <Route path="/grade-report" element={<GradeReport />} />
+            {/* Newly added sidebar-linked routes */}
+            <Route path="/teachers" element={<Teachers />} />
+            <Route path="/materials" element={<Materials />} />
+            <Route path="/recordings" element={<Recordings />} />
+            <Route path="/tests" element={<Tests />} />
+            <Route path="/assignments" element={<Assignments />} />
+            <Route path="/grade-report" element={<GradeReport />} />
 
-              {/* Catch-all route */}
-              <Route path="*" element={<NotFound />} />
-            </Routes>
-          </SidebarInset>
-        </SidebarProvider>
+            {/* Catch-all route */}
+            <Route path="*" element={<NotFound />} />
+          </Routes>
+        </div>
       </BrowserRouter>
     </TooltipProvider>
   </QueryClientProvider>
