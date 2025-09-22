@@ -1,4 +1,3 @@
-import Header from "@/components/Header";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
@@ -8,7 +7,6 @@ import { Calendar, Clock, BookOpen, Users, TrendingUp, Settings } from "lucide-r
 const Dashboard = () => {
   return (
     <div className="min-h-screen bg-gradient-to-br from-background via-background to-muted/20">
-      <Header />
       
       <main className="px-4 py-8">
         {/* Welcome Section */}
