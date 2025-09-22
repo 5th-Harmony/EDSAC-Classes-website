@@ -27,10 +27,10 @@ const App = () => (
   <QueryClientProvider client={queryClient}>
     <TooltipProvider>
       <BrowserRouter>
-        <SidebarProvider>
+        <SidebarProvider defaultOpen={false}>
           <Toaster />
           <Sonner />
-          <Sidebar>
+          <Sidebar collapsible="icon">
             <AppSidebar />
           </Sidebar>
           <SidebarInset>
