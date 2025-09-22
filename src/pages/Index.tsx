@@ -12,7 +12,7 @@ const Index = () => {
     {
       id: 2,
       title: "Courses Offered",
-      content: "Experience the opportunity to learn smart with interactive programmes offered for classes 5 to 12. Courses include all available streams for the particular board.",
+      content: "Experience the opportunity to learn smart with interactive programmes offered for both bachelors and masters courses. Courses include all available streams for the particular institution.",
       backgroundColor: "hsl(220, 15%, 10%)",
     },
     {
